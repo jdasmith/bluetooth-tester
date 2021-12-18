@@ -11,9 +11,9 @@ let temp = 0
 let connected = false
 bluetooth.startUartService()
 basic.showIcon(IconNames.SmallSquare)
+let counter = 0
 basic.forever(function () {
     if (connected == true) {
-        let counter = 0
         bluetooth.uartWriteString("Test:" + counter)
         bluetooth.uartWriteString("Temp" + temp)
     }
