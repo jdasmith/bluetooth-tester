@@ -8,19 +8,18 @@ bluetooth.onBluetoothDisconnected(function () {
 })
 let hb = ""
 let temp = 0
-let counter = 0
 let connected = false
 bluetooth.startUartService()
 basic.showIcon(IconNames.SmallSquare)
 basic.forever(function () {
     if (connected == true) {
+        let counter = 0
         bluetooth.uartWriteString("Test:" + counter)
         bluetooth.uartWriteString("Temp" + temp)
     }
 })
 basic.forever(function () {
     basic.pause(100)
-    counter += 1
     temp = input.temperature()
 })
 basic.forever(function () {
